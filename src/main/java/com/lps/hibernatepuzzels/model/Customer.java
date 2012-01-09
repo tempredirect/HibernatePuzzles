@@ -1,23 +1,33 @@
 package com.lps.hibernatepuzzels.model;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  *
  */
 @Entity
 public class Customer {
-   
+
    @Id
    @GeneratedValue
    private Long id;
-   
+
    private String name;
-   
+
    private String telephoneNumber;
-   
+
    @Enumerated(EnumType.STRING)
    private Status status = Status.ENABLED;
+
+   @OneToMany(cascade = CascadeType.ALL)
+   @JoinColumn(name = "customer")
+   private Set<Address> addresses = new LinkedHashSet<>();
+
+   @OneToMany( /* default cascade is no cascade */)
+   @JoinColumn(name = "customer")
+   private Set<EmailAddress> emailAddresses = new LinkedHashSet<>();
 
    public Long getId() {
       return id;
@@ -49,6 +59,22 @@ public class Customer {
 
    public void setStatus(Status status) {
       this.status = status;
+   }
+
+   public Set<Address> getAddresses() {
+      return new LinkedHashSet<>(addresses);
+   }
+
+   public void addAddress(Address address) {
+      addresses.add(address);
+   }
+
+   public Set<EmailAddress> getEmailAddresses() {
+      return new LinkedHashSet<>(emailAddresses);
+   }
+
+   public void addEmailAddress(EmailAddress emailAddress) {
+      emailAddresses.add(emailAddress);
    }
 
    @Override

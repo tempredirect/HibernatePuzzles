@@ -1,4 +1,4 @@
-package com.lps.hibernatepuzzels.puzzel1;
+package com.lps.hibernatepuzzels;
 
 import com.lps.hibernatepuzzels.model.Customer;
 import com.lps.hibernatepuzzels.model.Status;
@@ -17,15 +17,15 @@ public class UpdateOrNotToUpdate {
 
    public static void main(String[] args) {
       Logging.configure();
-      
+
       SessionFactory sessionFactory = HibernateSupport.buildSessionFactory();
       DataGenerator generator = new DataGenerator(sessionFactory);
       generator.createCustomerRecords(1);
-      
+
       Logger logger = LoggerFactory.getLogger(UpdateOrNotToUpdate.class);
 
       logger.info("***** starting");
-         
+
       Session session = sessionFactory.openSession();
       Customer customer = (Customer) session.get(Customer.class, 1L);
 
@@ -34,16 +34,16 @@ public class UpdateOrNotToUpdate {
 
       logger.info("***** save or update 1");
       session.saveOrUpdate(customer);
-         
+
       customer.setStatus(Status.DISABLED);
-         
+
       logger.info("***** save or update 2");
       session.saveOrUpdate(customer);
 
       logger.info("***** flush session");
       session.flush();
       session.close();
-         
+
       logger.info("***** finished");
       sessionFactory.close();
    }

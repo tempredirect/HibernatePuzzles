@@ -22,12 +22,12 @@ public class Customer {
    private Status status = Status.ENABLED;
 
    @OneToMany(cascade = CascadeType.ALL)
-   @JoinColumn(name = "customer")
-   private Set<Address> addresses = new LinkedHashSet<>();
+   @JoinColumn(name = "customer", nullable = false)
+   private Set<CustomerAddress> addresses = new LinkedHashSet<>();
 
    @OneToMany( /* default cascade is no cascade */)
-   @JoinColumn(name = "customer")
-   private Set<EmailAddress> emailAddresses = new LinkedHashSet<>();
+   @JoinColumn(name = "customer", nullable = false)
+   private Set<CustomerEmailAddress> emailAddresses = new LinkedHashSet<>();
 
    public Long getId() {
       return id;
@@ -61,19 +61,19 @@ public class Customer {
       this.status = status;
    }
 
-   public Set<Address> getAddresses() {
+   public Set<CustomerAddress> getAddresses() {
       return new LinkedHashSet<>(addresses);
    }
 
-   public void addAddress(Address address) {
+   public void addAddress(CustomerAddress address) {
       addresses.add(address);
    }
 
-   public Set<EmailAddress> getEmailAddresses() {
+   public Set<CustomerEmailAddress> getEmailAddresses() {
       return new LinkedHashSet<>(emailAddresses);
    }
 
-   public void addEmailAddress(EmailAddress emailAddress) {
+   public void addEmailAddress(CustomerEmailAddress emailAddress) {
       emailAddresses.add(emailAddress);
    }
 

@@ -20,7 +20,7 @@ public class UpdateOrNotToUpdate {
 
       SessionFactory sessionFactory = HibernateSupport.buildSessionFactory();
       DataGenerator generator = new DataGenerator(sessionFactory);
-      generator.createCustomerRecords(1);
+      generator.createCustomerRecords(1, 0);
 
       Logger logger = LoggerFactory.getLogger(UpdateOrNotToUpdate.class);
 
@@ -40,7 +40,7 @@ public class UpdateOrNotToUpdate {
       logger.info("***** save or update 2");
       session.saveOrUpdate(customer);
 
-      logger.info("***** flush session");
+      logger.info("***** flush and close session");
       session.flush();
       session.close();
 

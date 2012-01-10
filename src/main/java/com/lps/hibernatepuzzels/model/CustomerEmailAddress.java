@@ -8,13 +8,20 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class EmailAddress {
+public class CustomerEmailAddress {
 
    @Id
    @GeneratedValue
    private Long id;
 
    private String emailAddress;
+
+   public CustomerEmailAddress() {
+   }
+
+   public CustomerEmailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
+   }
 
    public String getEmailAddress() {
       return emailAddress;

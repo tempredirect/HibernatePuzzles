@@ -8,7 +8,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Address {
+public class CustomerAddress {
 
    @Id
    @GeneratedValue
@@ -18,6 +18,14 @@ public class Address {
    private String line2;
    private String city;
    private String postcode;
+
+   public CustomerAddress() {
+   }
+
+   public CustomerAddress(String line1, String postcode) {
+      this.line1 = line1;
+      this.postcode = postcode;
+   }
 
    public String getLine1() {
       return line1;

@@ -1,12 +1,14 @@
 package com.lps.hibernatepuzzels;
 
-import com.lps.hibernatepuzzels.model.Address;
 import com.lps.hibernatepuzzels.model.Customer;
-import com.lps.hibernatepuzzels.support.DataGenerator;
+import com.lps.hibernatepuzzels.model.CustomerAddress;
+import com.lps.hibernatepuzzels.model.CustomerEmailAddress;
 import com.lps.hibernatepuzzels.support.HibernateSupport;
 import com.lps.hibernatepuzzels.support.Logging;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -18,16 +20,27 @@ public class CascadeIssue {
 
       SessionFactory sessionFactory = HibernateSupport.buildSessionFactory();
 
-      new DataGenerator(sessionFactory).createCustomerRecords(1);
-
       Session session = sessionFactory.openSession();
 
-      Customer customer = (Customer) session.get(Customer.class, 1L);
+      Logger logger = LoggerFactory.getLogger(CascadeIssue.class);
 
-      customer.addAddress(new Address());
-      //      customer.addEmailAddress(new EmailAddress());
-      //      customer.setName("Thing");
+      logger.info("**** Start of test - Create a customer");
+      Customer customer = new Customer();
+      customer.setName("My Customer");
 
+      logger.info("**** add new Address");
+      customer.addAddress(new CustomerAddress());
+
+      logger.info("**** save the customer object");
+      session.save(customer);
+
+      logger.info("**** adding a new email address");
+      CustomerEmailAddress emailAddress = new CustomerEmailAddress("thing@example.com");
+      customer.addEmailAddress(emailAddress);
+      // have to save the object because there is
+      session.save(emailAddress);
+
+      logger.info("**** flush and close");
       session.flush();
       session.close();
 

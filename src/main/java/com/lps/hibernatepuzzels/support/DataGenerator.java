@@ -17,6 +17,7 @@ public class DataGenerator {
    }
 
    public void createCustomerRecords(int customerCount, int addressCount) {
+      Logging.disableSql();
       Session session = sessionFactory.openSession();
       for (int i = 1; i <= customerCount; i++) {
          Customer c = new Customer();
@@ -30,5 +31,6 @@ public class DataGenerator {
       }
 
       session.close();
+      Logging.enableSql();
    }
 }

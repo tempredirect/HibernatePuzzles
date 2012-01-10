@@ -13,6 +13,14 @@ public class Logging {
 
       Logger.getLogger("org.hibernate").setLevel(Level.WARN);
       Logger.getLogger("org.hibernate.tool.hbm2ddl.SchemaExport").setLevel(Level.DEBUG);
+      enableSql();
+   }
+
+   public static void disableSql() {
+      Logger.getLogger("org.hibernate.SQL").setLevel(Level.WARN);
+   }
+
+   public static void enableSql() {
       Logger.getLogger("org.hibernate.SQL").setLevel(Level.DEBUG);
    }
 }

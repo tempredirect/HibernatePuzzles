@@ -10,9 +10,10 @@ import org.apache.log4j.Logger;
 public class Logging {
    public static void configure() {
       BasicConfigurator.configure();
-
-      Logger.getLogger("org.hibernate").setLevel(Level.WARN);
+      Logger.getRootLogger().setLevel(Level.WARN);
+//      Logger.getLogger("org.hibernate").setLevel(Level.WARN);
       Logger.getLogger("org.hibernate.tool.hbm2ddl.SchemaExport").setLevel(Level.DEBUG);
+      Logger.getLogger("com.lps.hibernatepuzzels").setLevel(Level.INFO);
       enableSql();
    }
 

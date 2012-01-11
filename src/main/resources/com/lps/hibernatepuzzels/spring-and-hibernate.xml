@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
    <context:annotation-config/>
 
    <context:component-scan base-package="com.lps.hibernatepuzzels.spring"/>
 
+   <tx:annotation-driven transaction-manager="transactionManager"/>
+
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+         p:systemPropertiesModeName="SYSTEM_PROPERTIES_MODE_OVERRIDE">
+      <property name="properties">
+         <value>
+            dataSource.driverClass=org.hibernate.dialect.HSQLDialect
+            dataSource.jdbcUrl=jdbc:hsqldb:mem:db
+            dataSource.user=sa
+            dataSource.password=
+         </value>
+      </property>
+   </bean>
+
    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-         p:driverClass="org.hibernate.dialect.HSQLDialect"
-         p:jdbcUrl="jdbc:hsqldb:mem:db"/>
+         p:driverClass="${dataSource.driverClass}"
+         p:jdbcUrl="${dataSource.jdbcUrl}"
+         p:user="${dataSource.user}"
+         p:password="${dataSource.password}"
+         />
 
    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
          p:packagesToScan="com.lps.hibernatepuzzels.model"

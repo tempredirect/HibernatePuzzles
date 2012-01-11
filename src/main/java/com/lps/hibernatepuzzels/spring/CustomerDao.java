@@ -21,4 +21,8 @@ public class CustomerDao extends HibernateDaoSupport {
    public Customer badGet(long id) {
       return (Customer) getSession().get(Customer.class, id);
    }
+
+   public void saveOrUpdate(Customer customer) {
+      getHibernateTemplate().saveOrUpdate(customer);
+   }
 }

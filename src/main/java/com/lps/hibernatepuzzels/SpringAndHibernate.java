@@ -11,6 +11,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 
+import static com.lps.hibernatepuzzels.support.HibernateSupport.openSessionCount;
+
 /**
  *
  */
@@ -26,6 +28,7 @@ public class SpringAndHibernate {
 
       SessionFactory sessionFactory = context.getBean(SessionFactory.class);
 
+      // *********************************************************************
 
       CustomerDao customerDao = context.getBean(CustomerDao.class);
 
@@ -41,7 +44,4 @@ public class SpringAndHibernate {
       logger.info("connections in use :" + dataSource.getNumBusyConnections());
    }
 
-   private static String openSessionCount(SessionFactory sessionFactory) {
-      return "" + (sessionFactory.getStatistics().getSessionOpenCount() - sessionFactory.getStatistics().getSessionCloseCount());
-   }
 }

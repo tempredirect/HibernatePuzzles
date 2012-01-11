@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
+ * Can you predict how many and at what point the Customer table is updated?
  */
 public class UpdateOrNotToUpdate {
 
@@ -27,20 +27,26 @@ public class UpdateOrNotToUpdate {
       logger.info("***** starting");
 
       Session session = sessionFactory.openSession();
+
       Customer customer = (Customer) session.get(Customer.class, 1L);
 
       logger.info("***** setting name");
+      // Option A
       customer.setName("My Customer");
 
       logger.info("***** save or update 1");
+      // Option B
       session.saveOrUpdate(customer);
 
       customer.setStatus(Status.DISABLED);
 
       logger.info("***** save or update 2");
+      // Option C
       session.saveOrUpdate(customer);
 
       logger.info("***** flush and close session");
+
+      // Option D - None of the above
       session.flush();
       session.close();
 

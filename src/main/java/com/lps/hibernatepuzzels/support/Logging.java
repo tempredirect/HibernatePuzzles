@@ -12,7 +12,7 @@ public class Logging {
       BasicConfigurator.configure();
       Logger.getRootLogger().setLevel(Level.WARN);
 //      Logger.getLogger("org.hibernate").setLevel(Level.WARN);
-      Logger.getLogger("org.hibernate.tool.hbm2ddl.SchemaExport").setLevel(Level.DEBUG);
+      Logger.getLogger("org.hibernate.tool.hbm2ddl.SchemaExport").setLevel(Level.WARN);
       Logger.getLogger("com.lps.hibernatepuzzels").setLevel(Level.INFO);
       enableSql();
    }

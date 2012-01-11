@@ -36,4 +36,12 @@ public class HibernateSupport {
       }
       return cfg.buildSessionFactory();
    }
+
+   public static long openSessionCount(SessionFactory sessionFactory) {
+      return sessionFactory.getStatistics().getSessionOpenCount() - sessionFactory.getStatistics().getSessionCloseCount();
+   }
+
+   public static long sessionTotal(SessionFactory sessionFactory) {
+      return sessionFactory.getStatistics().getSessionOpenCount();
+   }
 }

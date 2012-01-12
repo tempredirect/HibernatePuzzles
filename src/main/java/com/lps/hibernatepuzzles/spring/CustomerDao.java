@@ -1,6 +1,6 @@
-package com.lps.hibernatepuzzels.spring;
+package com.lps.hibernatepuzzles.spring;
 
-import com.lps.hibernatepuzzels.model.Customer;
+import com.lps.hibernatepuzzles.model.Customer;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;

@@ -1,7 +1,7 @@
-package com.lps.hibernatepuzzels.support;
+package com.lps.hibernatepuzzles.support;
 
-import com.lps.hibernatepuzzels.model.Customer;
-import com.lps.hibernatepuzzels.model.CustomerAddress;
+import com.lps.hibernatepuzzles.model.Customer;
+import com.lps.hibernatepuzzles.model.CustomerAddress;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

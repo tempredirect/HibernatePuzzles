@@ -1,4 +1,4 @@
-package com.lps.hibernatepuzzels.model;
+package com.lps.hibernatepuzzles.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

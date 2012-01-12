@@ -1,10 +1,10 @@
-package com.lps.hibernatepuzzels;
+package com.lps.hibernatepuzzles;
 
-import com.lps.hibernatepuzzels.model.Customer;
-import com.lps.hibernatepuzzels.model.CustomerAddress;
-import com.lps.hibernatepuzzels.model.CustomerEmailAddress;
-import com.lps.hibernatepuzzels.support.HibernateSupport;
-import com.lps.hibernatepuzzels.support.Logging;
+import com.lps.hibernatepuzzles.model.Customer;
+import com.lps.hibernatepuzzles.model.CustomerAddress;
+import com.lps.hibernatepuzzles.model.CustomerEmailAddress;
+import com.lps.hibernatepuzzles.support.HibernateSupport;
+import com.lps.hibernatepuzzles.support.Logging;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;

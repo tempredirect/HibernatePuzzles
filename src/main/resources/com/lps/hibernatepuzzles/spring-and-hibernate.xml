@@ -6,7 +6,7 @@
 
    <context:annotation-config/>
 
-   <context:component-scan base-package="com.lps.hibernatepuzzels.spring"/>
+   <context:component-scan base-package="com.lps.hibernatepuzzles.spring"/>
 
    <tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -30,7 +30,7 @@
          />
 
    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
-         p:packagesToScan="com.lps.hibernatepuzzels.model"
+         p:packagesToScan="com.lps.hibernatepuzzles.model"
          p:dataSource-ref="dataSource">
       <property name="hibernateProperties">
          <value>
@@ -45,7 +45,7 @@
    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
          p:sessionFactory-ref="sessionFactory"/>
 
-   <bean class="com.lps.hibernatepuzzels.support.DataGenerator">
+   <bean class="com.lps.hibernatepuzzles.support.DataGenerator">
       <constructor-arg ref="sessionFactory"/>
    </bean>
 

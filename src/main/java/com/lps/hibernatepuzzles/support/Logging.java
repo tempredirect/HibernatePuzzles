@@ -1,4 +1,4 @@
-package com.lps.hibernatepuzzels.support;
+package com.lps.hibernatepuzzles.support;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
@@ -13,7 +13,7 @@ public class Logging {
       Logger.getRootLogger().setLevel(Level.WARN);
 //      Logger.getLogger("org.hibernate").setLevel(Level.WARN);
       Logger.getLogger("org.hibernate.tool.hbm2ddl.SchemaExport").setLevel(Level.WARN);
-      Logger.getLogger("com.lps.hibernatepuzzels").setLevel(Level.INFO);
+      Logger.getLogger("com.lps.hibernatepuzzles").setLevel(Level.INFO);
       enableSql();
    }
 

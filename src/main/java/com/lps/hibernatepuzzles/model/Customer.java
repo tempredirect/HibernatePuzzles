@@ -1,4 +1,4 @@
-package com.lps.hibernatepuzzels.model;
+package com.lps.hibernatepuzzles.model;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;

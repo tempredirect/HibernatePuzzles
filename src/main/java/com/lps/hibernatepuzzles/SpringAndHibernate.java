@@ -1,8 +1,8 @@
-package com.lps.hibernatepuzzels;
+package com.lps.hibernatepuzzles;
 
-import com.lps.hibernatepuzzels.spring.CustomerDao;
-import com.lps.hibernatepuzzels.support.DataGenerator;
-import com.lps.hibernatepuzzels.support.Logging;
+import com.lps.hibernatepuzzles.spring.CustomerDao;
+import com.lps.hibernatepuzzles.support.DataGenerator;
+import com.lps.hibernatepuzzles.support.Logging;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 
-import static com.lps.hibernatepuzzels.support.HibernateSupport.openSessionCount;
+import static com.lps.hibernatepuzzles.support.HibernateSupport.openSessionCount;
 
 /**
  *
@@ -22,7 +22,7 @@ public class SpringAndHibernate {
       Logging.configure();
       Logger logger = LoggerFactory.getLogger(SpringAndHibernate.class);
 
-      ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/com/lps/hibernatepuzzels/spring-and-hibernate.xml");
+      ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/com/lps/hibernatepuzzles/spring-and-hibernate.xml");
 
       context.getBean(DataGenerator.class).createCustomerRecords(1, 3);
 

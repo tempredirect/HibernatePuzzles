@@ -1,1 +1,12 @@
-This file was created by IntelliJ IDEA 11.0.1 for binding GitHub repository
+
+=================================
+  Hibernate Puzzles 
+=================================
+
+Inspired by the Java puzzler series and contents a suite of programs that attempt to demostrate some of the less well understood features of Hibernate.
+
+Requirements:
+  Java 1.7
+  Maven 3.0.3+ (may work on lower versions but haven't tested it)
+
+
